@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+     <title>아차모</title>
+     <style>
+        #navigator {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          align-items: center;
+          margin-bottom: 100px;
+        }
+        a:link { color: red; text-decoration: none;}
+            a:visited { color: black; text-decoration: none;}
+            a:hover { color: #666; text-decoration: none;}
+        a{
+            text-decoration-line: none;
+            margin-right: 40px;
+            font-size: 20px;
+        }
+       #logo {
+            margin-right: 40px;
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+        }
+       #revolution-stage {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+       }
+       #revolution-stage img {
+        position: relative;
+        height: 240px;
+       }
+       #revolution-stage span {
+        position: relative;
+        font-size: 40px;
+        margin-left: 20px;
+        margin-right: 20px;
+       }
+       p {
+        font-size: 24px;
+        margin-bottom: 40px;
+       }
+
+       html, body {
+          height:100%
+       }
+
+       #background {
+        position: relative;
+        width: auto;
+        height: 1500px;
+
+        display: flex;
+        justify-content: center;
+
+       }
+
+       #main {
+        position: relative;
+        width: 920px;
+        background-color: bisque;
+        
+        }
+
+        #background-image {
+            position: absolute;
+            width: 100%;
+        }
+
+     </style>
+   </head>
+
+   <body>
+    <div id="background">
+        <img id="background-image" src="./images/배경.jpg"/>
+
+        <div id="main">
+            <header>
+                <div id="navigator">
+                    <img id="logo" src="./images/아차모.png"/>
+                <a href="./index.html">홈</a>
+                    <a href="./revolution.html">진화 단계</a>
+
+                </div>
+            </header>
+            
+            <section>
+                <p>아차모 진화 단계</p>
+                <div id="revolution-stage">
+                    <img src="./images/아차모.png"/>
+                    <span>-></span>
+                    <img src="./images/영치코.png"/>
+                    <span>-></span>
+                    <img src="./images/번치코.png"/>
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+
+    </footer>
+
+   </body>
+</html>

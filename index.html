@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+     <title>아차모</title>
+     <style>
+        #navigator {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          align-items: center;
+        }
+        a:link { color: red; text-decoration: none;}
+            a:visited { color: black; text-decoration: none;}
+            a:hover { color: #666; text-decoration: none;}
+        a{
+            text-decoration-line: none;
+            margin-right: 40px;
+            font-size: 20px;
+        }
+       #logo {
+            margin-right: 40px;
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+        }
+
+        html, body {
+          height:100%
+       }
+       
+       #background {
+        position: relative;
+        width: auto;
+        height: 1500px;
+
+        display: flex;
+        justify-content: center;
+
+       }
+
+       #main {
+        position: relative;
+        width: 920px;
+        background-color: bisque;
+        
+        }
+
+        #background-image {
+            position: absolute;
+            width: 100%;
+        }
+
+        canvas {
+             border: 1px solid black; 
+             margin-top: 40px;
+            }
+
+        #canvas-background {
+            position: relative;
+            width: auto;
+            display: flex;
+            justify-content: center;
+        }
+     </style>
+   </head>
+
+   <body>
+    <div id="background">
+        <img id="background-image" src="./images/배경.jpg"/>
+
+        <div id="main">
+            <header>
+                <div id="navigator">
+                    <img id="logo" src="./images/아차모.png"/>
+                <a href="./index.html">홈</a>
+                    <a href="./revolution.html">진화 단계</a>
+
+                </div>
+            </header>
+
+            <div id="canvas-background">
+               <canvas id="mycanvas"> </canvas>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var canvas, context;
+        
+        window.onload = function (){
+        canvas = document.getElementById('mycanvas');
+        canvas.width = 900;
+        canvas.height = 900;
+          context = canvas.getContext('2d'); 
+        
+          // 선 굵기
+          context.lineWidth = 2;
+          context.strokeStyle = "orange";
+        
+          canvas.addEventListener("mousemove", function(e){ move(e) });
+          canvas.addEventListener("mousedown", function(e){ down(e) });
+          canvas.addEventListener("mouseup", function(e){ up(e) });
+          canvas.addEventListener("mouseout", function(e){ out(e) });
+        }
+        
+        // 처음 마우스가 눌려진 좌표
+        var startX = 0, startY = 0;
+        // 드래깅
+        var painting = false;
+        
+        // 선 그리기
+        function draw(curX, curY){
+          context.beginPath();
+          context.moveTo(startX, startY);
+          context.lineTo(curX, curY);
+          context.stroke();
+        }
+        
+        function move(e){
+          if(!painting){ return; }
+          var curX = e.offsetX, curY = e.offsetY;
+          draw(curX, curY);
+        
+          startX = curX; startY = curY;
+        }
+        
+        function down(e){
+        startX = e.offsetX;
+        startY = e.offsetY;
+        painting = true;
+        }
+        function up(e){ painting = false; }
+        function out(e){ painting = false; }
+        </script>
+        
+
+   </body>
+</html>
